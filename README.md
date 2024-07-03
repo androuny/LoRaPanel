@@ -4,4 +4,5 @@ how to run
 
 1. clone repo
 2. setup .env file (use .env.example as an example)
-3. go run .
+3. `go mod tidy`
+4.  `go run .`
