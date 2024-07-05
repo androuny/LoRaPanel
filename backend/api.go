@@ -88,10 +88,12 @@ func (api Api) GetAllSensorDataRoute(c *gin.Context) {
 
 func InitBackend(db_uri string, database string) (Api) {
 	r := gin.Default()
+	log.Printf("Connecting to mongodb database...")
 	mhdl, _, err := NewMongoHandler(db_uri, database)
 	if err != nil {
 		log.Fatalf("database error %v", err)
 	}
+	log.Printf("Connected to mongodb database successfully!")
 
 	api := Api{r, &mhdl}
 	api.router.GET("/ping", api.PingPongRoute)
